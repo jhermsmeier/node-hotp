@@ -1,0 +1,38 @@
+{
+  "name": "hotp",
+  "version": "1.0.0",
+  "description": "HMAC-Based One-Time Password (HOTP) Algorithm",
+  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
+  "license": "MIT",
+  "keywords": [
+    "hotp",
+    "otp",
+    "rfc4226",
+    "rfc 4226",
+    "one-time password",
+    "two-factor authentication",
+    "two-factor",
+    "2fa",
+    "authentication",
+    "authenticator"
+  ],
+  "main": "lib/hotp",
+  "bin": {
+    "hotp": "bin/hotp"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "homepage": "https://github.com/jhermsmeier/node-hotp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jhermsmeier/node-hotp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jhermsmeier/node-hotp/issues"
+  }
+}
