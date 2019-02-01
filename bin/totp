@@ -3,11 +3,10 @@ var hotp = require( '..' )
 var argv = process.argv.slice( 2 )
 
 var key = argv.shift()
-var counter = argv.shift()
 var digits = argv.shift()
 
-if( !key || !counter ) {
-  console.error( `Usage: hotp <key> <counter> [digits=6]` )
+if( !key ) {
+  console.error( `Usage: hotp <key> [digits=6]` )
   process.exit( 1 )
 }
 
@@ -15,4 +14,4 @@ var options = {
   digits: digits ? +digits : undefined,
 }
 
-console.log( hotp( key, counter, options ) )
+console.log( hotp.totp( key, options ) )
