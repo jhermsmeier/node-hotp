@@ -18,7 +18,8 @@
   ],
   "main": "lib/hotp",
   "bin": {
-    "hotp": "bin/hotp"
+    "hotp": "bin/hotp",
+    "totp": "bin/totp"
   },
   "scripts": {
     "test": "mocha"
