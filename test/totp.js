@@ -2,7 +2,7 @@ var assert = require( 'assert' )
 var hotp = require( '..' )
 var totp = hotp.totp
 
-describe( 'HOTP', function() {
+describe( 'TOTP', function() {
 
   context( 'RFC 6238', function() {
 
@@ -31,7 +31,7 @@ describe( 'HOTP', function() {
       { key: keySHA512, time: 20000000000, t: 0x0000000027BC86AA, token: '47863826', algorithm: 'sha512' },
     ]
 
-    context( 'Section 4.2', function() {
+    context( 'Section 4.2  Time Steps', function() {
       values.forEach( function( test ) {
         specify( `${test.time} -> ${test.t}`, function() {
           assert.strictEqual( totp.t( test.time, 0, 30 ), test.t )
