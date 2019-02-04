@@ -6,7 +6,7 @@ var key = argv.shift()
 var digits = argv.shift()
 
 if( !key ) {
-  console.error( `Usage: hotp <key> [digits=6]` )
+  console.error( `Usage: totp <key> [digits=6]` )
   process.exit( 1 )
 }
 
