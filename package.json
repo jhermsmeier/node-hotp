@@ -25,10 +25,6 @@
     "time-based"
   ],
   "main": "lib/hotp",
-  "bin": {
-    "hotp": "bin/hotp",
-    "totp": "bin/totp"
-  },
   "scripts": {
     "test": "mocha"
   },

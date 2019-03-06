@@ -12,6 +12,12 @@ HMAC-Based One-Time Password (HOTP), and Time-Based One-Time Password (TOTP) Alg
 $ npm install --save hotp
 ```
 
+## Changelog
+
+- **v3.0.0**: Removed CLI utilities – now to be found at [jhermsmeier / hotp-totp-cli](https://github.com/jhermsmeier/hotp-totp-cli)
+- **v2.0.0**: Added TOTP implementation
+- **v1.0.0**: Initial release
+
 ## Usage
 
 ### HOTP
@@ -60,16 +66,6 @@ var key = 'a very secret key'
 var token = hotp.totp( key, { digits: 8 })
 
 console.log( token ) // > '86247382'
-```
-
-## CLI Usage
-
-```console
-hotp <key> <counter> [digits=6]
-```
-
-```console
-totp <key> [digits=6]
 ```
 
 ## References
