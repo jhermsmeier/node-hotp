@@ -1,19 +1,23 @@
 {
   "name": "hotp",
   "version": "3.0.0",
-  "description": "HMAC-Based One-Time Password (HOTP), and Time-Based One-Time Password (TOTP) Algorithms",
+  "description": "HMAC-Based One-Time Password (HOTP), Time-Based One-Time Password (TOTP) Algorithms, and OATH Challenge-Response Algorithm (OCRA)",
   "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
   "license": "MIT",
   "keywords": [
     "hotp",
     "totp",
     "otp",
+    "ocra",
     "rfc4226",
     "rfc 4226",
     "4226",
     "rfc6238",
     "rfc 6238",
     "6238",
+    "rfc6287",
+    "rfc 6287",
+    "6287",
     "one-time password",
     "two-factor authentication",
     "two-factor",
@@ -22,7 +26,8 @@
     "authenticator",
     "hmac",
     "hmac-based",
-    "time-based"
+    "time-based",
+    "challenge-response"
   ],
   "main": "lib/hotp",
   "scripts": {
