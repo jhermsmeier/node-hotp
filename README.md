@@ -1,4 +1,5 @@
-# HOTP TOTP
+# HOTP - TOTP - OCRA
+
 [![npm](https://img.shields.io/npm/v/hotp.svg?style=flat-square)](https://npmjs.com/package/hotp)
 [![npm license](https://img.shields.io/npm/l/hotp.svg?style=flat-square)](https://npmjs.com/package/hotp)
 [![npm downloads](https://img.shields.io/npm/dm/hotp.svg?style=flat-square)](https://npmjs.com/package/hotp)
@@ -24,51 +25,80 @@ $ npm install --save hotp
 
 #### hotp( key, counter[, options] )
 
-- `key` {Buffer|String}
-- `counter` {Buffer|String|Number}
+- `key` {Buffer|string}
+- `counter` {Buffer|string|number}
 - `options` {Object}
-  - `algorithm` {Number} **Default:** `'sha1'`
-  - `digits` {Number} **Default:** `6`
-- Returns {String}
+  - `algorithm` {number} **Default:** `'sha1'`
+  - `digits` {number} **Default:** `6`
+- Returns {string}
 
 #### Example
 
 ```js
-var hotp = require( 'hotp' )
+const hotp = require("hotp");
 
-var key = 'a very secret key'
-var counter = 0
+const key = "a very secret key";
+const counter = 0;
 
-var token = hotp( key, counter, { digits: 8 })
+const token = hotp(key, counter, { digits: 8 });
 
-console.log( token ) // > '78035651'
+console.log(token); // > '78035651'
 ```
 
 ### TOTP
 
 #### hotp.totp( key[, options] )
 
-- `key` {Buffer|String}
+- `key` {Buffer|string}
 - `options` {Object}
-  - `algorithm` {Number} **Default:** `'sha1'`
-  - `digits` {Number} **Default:** `6`
-  - `time` {Number} **Default:** `(Date.now() / 1000)`
-  - `timeStep` {Number} **Default:** `30`
-  - `t0` {Number} **Default:** `0`
-- Returns {String}
+  - `algorithm` {number} **Default:** `'sha1'`
+  - `digits` {number} **Default:** `6`
+  - `time` {number} **Default:** `(Date.now() / 1000)`
+  - `timeStep` {number} **Default:** `30`
+  - `t0` {number} **Default:** `0`
+- Returns {string}
 
 #### Example
 
 ```js
-var hotp = require( 'hotp' )
+const hotp = require("hotp");
 
-var key = 'a very secret key'
-var token = hotp.totp( key, { digits: 8 })
+const key = "a very secret key";
+const token = hotp.totp(key, { digits: 8 });
 
-console.log( token ) // > '86247382'
+console.log(token); // > '86247382'
+```
+
+### OCRA
+
+#### ocra( key, counter[, options] )
+
+- `key` {Buffer|string}
+- `ocraSuite` {string}
+- `data` {Object}
+  - `counter` {number?}
+  - `question` {number|string}
+  - `password` {string?} (in hexadecimal)
+  - `sessionInfo` {string?}
+  - `timestamp` {number?} (in milliseconds)
+- Returns {string}
+
+#### Example
+
+```js
+const hotp = require("hotp");
+
+const key = "a very secret key";
+const ocraSuite = "OCRA-1:HOTP-SHA512-8:QA10-T1M";
+const data = { question: "SIG1000000", timestamp: 1206446760000 };
+
+const token = hotp.ocra(key, ocraSuite, data);
+
+console.log(token); // > '77537423'
 ```
 
 ## References
 
 - [RFC 4226, HOTP: An HMAC-Based One-Time Password Algorithm](https://tools.ietf.org/html/rfc4226)
 - [RFC 6238, TOTP: Time-Based One-Time Password Algorithm](https://tools.ietf.org/html/rfc6238)
+- [RFC 6287, OCRA: OATH Challenge-Response Algorithm](https://tools.ietf.org/html/rfc6287)
